@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Metronome.css';
-import click1 from './sounds/click1.wav';
-import click2 from './sounds/click2.wav';
+import click1 from '../sounds/click1.wav';
+import click2 from '../sounds/click2.wav';
 
 class Metronome extends Component {
     constructor(props) {
@@ -18,6 +18,8 @@ class Metronome extends Component {
         this.click2 = new Audio(click2);
     }
 
+    //when starting the metronome, it flips out and goes ham.
+    //does that happen in here?
     startStop = () => {
         if(this.state.playing) {
             clearInterval(this.timer);
