@@ -18,14 +18,12 @@ class Metronome extends Component {
         this.click2 = new Audio(click2);
     }
 
-    //when starting the metronome, it flips out and goes ham.
-    //does that happen in here?
     startStop = () => {
         if(this.state.playing) {
             clearInterval(this.timer);
             this.setState({ playing: false});
         } else {
-            this.timer = setInterval(this.playClick, 60 / this.state.bpm);
+            this.timer = setInterval(this.playClick, (60 / this.state.bpm) * 1000);
             this.setState({
                 count: 0,
                 playing: true
@@ -77,8 +75,8 @@ class Metronome extends Component {
                     <div>{bpm} BPM</div>
                     <input
                         type="range"
-                        min="60"
-                        max="240"
+                        min="40"
+                        max="300"
                         value={bpm}
                         onChange={this.handleBpmChange} />
                 </div>
