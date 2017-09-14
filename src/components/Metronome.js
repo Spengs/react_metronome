@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Metronome.css';
 import click1 from '../sounds/click1.wav';
 import click2 from '../sounds/click2.wav';
+import Visualizer from './Visualizer';
 
 class Metronome extends Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class Metronome extends Component {
         // and we'll play them later.
         this.click1 = new Audio(click1);
         this.click2 = new Audio(click2);
+
     }
 
     startStop = () => {
@@ -83,6 +85,10 @@ class Metronome extends Component {
                 <button onClick={this.startStop}>
                     {playing ? 'Stop' : 'Start'}
                 </button>
+
+                <div>
+                    <Visualizer/>
+                </div>
             </div>
         );
     }
